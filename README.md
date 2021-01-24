@@ -1,5 +1,9 @@
 # NPMNBA
 
+只是试着写个 cli 工具玩罢了
+
+数据源来自：NBA-CHINA
+
 ## How to use it
 
 **install**
