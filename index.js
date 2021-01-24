@@ -110,7 +110,7 @@ async function getMessages(url) {
 
 async function incessantDisplay(gameUrl) {
   setInterval(async () => {
-    global.log.clear();
+    console.clear();
     const messages = await getMessages(gameUrl);
     displayMessages(messages);
   }, 5000);
