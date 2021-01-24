@@ -126,29 +126,15 @@ async function main() {
   });
 }
 
-async function start() {
-  const argv = require("yargs")
-    .option("d", {
-      alias: "date",
-      describe: "show the schedule of that day",
-      type: "string",
-    })
-    .usage("Usage: npmnba --date 2021-01-24")
-    .example("npmnba --date 2021-01-24", "show the schedule of that day")
-    .help("h")
-    .alias("h", "help")
-    .epilog("copyright 2021").argv;
-
-  if (argv.d) {
-    await initialChoices(getDateUrl(argv.d));
-    let messages = "";
-    gameList.forEach((element, index) => {
-      messages += element.name + "\n";
-    });
-    log(messages);
-  } else {
-    main();
-  }
+async function getScheduleAsDate(date) {
+  await initialChoices(getDateUrl(date));
+  let messages = "";
+  gameList.forEach((element, index) => {
+    messages += element.name + "\n";
+  });
+  log(messages);
 }
-
-start();
+module.exports = {
+  main,
+  getScheduleAsDate,
+};
