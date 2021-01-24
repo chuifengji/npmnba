@@ -2,15 +2,15 @@
 
 ## How to use it
 
-** install **
+**install**
 
 `npm install npmnba -g`
 
-** basic **
+**basic**
 
 `npmnba`
 
-** others command**
+**others command**
 
 - npmnba -d 2021-01-24
 - maybe there won't be any more
