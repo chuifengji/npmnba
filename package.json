@@ -1,0 +1,30 @@
+{
+  "name": "npmnba",
+  "version": "0.0.1",
+  "description": "Watch NBA Live on the command line",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuifengji/npmnba.git"
+  },
+  "keywords": [
+    "nba",
+    "live",
+    "command"
+  ],
+  "author": "EthanLv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chuifengji/npmnba/issues"
+  },
+  "homepage": "https://github.com/chuifengji/npmnba#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "inquirer": "^7.3.3",
+    "prompt": "^1.1.0",
+    "yargs": "^16.2.0"
+  }
+}
