@@ -88,10 +88,13 @@ async function getGameDetail(url) {
     const res = await fetch(url);
     const events = JSON.parse(res).payload.playByPlays[0]?.events;
     let realTimeData = Object.create(null);
-    if (!events) {
+    if (!events && global.currentPeriod > 1) {
       global.currentPeriod--;
       return;
-    } else if (events[0].description === "本节比赛已结束") {
+    } else if (
+      events[0].description === "本节比赛已结束" &&
+      global.currentPeriod < 4
+    ) {
       global.currentPeriod++;
     } else {
       realTimeData = events.map((e) => {
@@ -128,10 +131,9 @@ async function main() {
   await initialChoices();
   inquirer.prompt(promptList).then(async (answers) => {
     const gameId = getGameId(answers.gameDetail, promptList[0].choices);
-    const gameUrl = getUrlForPlayByPlay(gameId);
-    const messages = await getMessages(gameUrl);
+    const messages = await getMessages(getUrlForPlayByPlay(gameId));
     displayMessages(messages);
-    incessantDisplay(gameUrl);
+    incessantDisplay(getUrlForPlayByPlay(gameId));
   });
 }
 
@@ -147,4 +149,3 @@ module.exports = {
   main,
   getScheduleAsDate,
 };
-main();

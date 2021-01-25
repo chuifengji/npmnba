@@ -1,6 +1,6 @@
 {
   "name": "npmnba",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Watch NBA Live on the command line",
   "main": "index.js",
   "bin": {
