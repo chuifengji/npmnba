@@ -80,6 +80,7 @@ function getGameId(name, games) {
   const game = games.find((item) => {
     return item.name === name;
   });
+  console.log(game.gameId);
   return game.gameId;
 }
 
@@ -138,3 +139,4 @@ module.exports = {
   main,
   getScheduleAsDate,
 };
+main();
