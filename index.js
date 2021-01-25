@@ -119,8 +119,9 @@ async function getMessages(url) {
   return messages;
 }
 
-async function incessantDisplay(gameUrl) {
+async function incessantDisplay(gameId) {
   setInterval(async () => {
+    let gameUrl = getUrlForPlayByPlay(gameId);
     console.clear();
     const messages = await getMessages(gameUrl);
     displayMessages(messages);
@@ -133,7 +134,7 @@ async function main() {
     const gameId = getGameId(answers.gameDetail, promptList[0].choices);
     const messages = await getMessages(getUrlForPlayByPlay(gameId));
     displayMessages(messages);
-    incessantDisplay(getUrlForPlayByPlay(gameId));
+    incessantDisplay(gameId);
   });
 }
 
