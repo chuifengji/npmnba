@@ -80,20 +80,27 @@ function getGameId(name, games) {
   const game = games.find((item) => {
     return item.name === name;
   });
-  console.log(game.gameId);
   return game.gameId;
 }
 
 async function getGameDetail(url) {
   try {
     const res = await fetch(url);
-    const events = JSON.parse(res).payload.playByPlays[0].events;
-    const realTimeData = events.map((e) => {
-      return {
-        description: e.description,
-        socre: e.homeScore + " VS " + e.awayScore,
-      };
-    });
+    const events = JSON.parse(res).payload.playByPlays[0]?.events;
+    let realTimeData = Object.create(null);
+    if (!events) {
+      global.currentPeriod--;
+      return;
+    } else if (events[0].description === "本节比赛已结束") {
+      global.currentPeriod++;
+    } else {
+      realTimeData = events.map((e) => {
+        return {
+          description: e.description,
+          socre: e.homeScore + " VS " + e.awayScore,
+        };
+      });
+    }
     return realTimeData;
   } catch (err) {
     global.log(chalk.redBright(err));
@@ -101,9 +108,9 @@ async function getGameDetail(url) {
 }
 
 async function getMessages(url) {
-  let res = await getGameDetail(url);
+  let eventsArray = await getGameDetail(url);
   let messages = "";
-  res.forEach((element, index) => {
+  eventsArray?.forEach((element, index) => {
     if (index < 15) messages += element.description + "\n";
   });
   return messages;
@@ -116,6 +123,7 @@ async function incessantDisplay(gameUrl) {
     displayMessages(messages);
   }, 5000);
 }
+
 async function main() {
   await initialChoices();
   inquirer.prompt(promptList).then(async (answers) => {
