@@ -87,7 +87,7 @@ async function getGameDetail(url) {
   try {
     const res = await fetch(url);
     const events = JSON.parse(res).payload.playByPlays[0]?.events;
-    let realTimeData = Object.create(null);
+    let realTimeData = [];
     if (!events && global.currentPeriod > 1) {
       global.currentPeriod--;
       return;
