@@ -18,10 +18,10 @@
 
 ![image-20210124214552109](http://img.ethanlv.cn/image-20210124214552109.png)
 
-**others command**
+**others**
 
 - npmnba -d 2021-01-24
 
   ![image-20210124214707371](http://img.ethanlv.cn/image-20210124214707371.png)
 
-- maybe there won't be any more
+- other features? maybe nothing else
