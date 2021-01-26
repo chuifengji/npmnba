@@ -1,7 +1,7 @@
 const chalk = require("chalk");
 const inquirer = require("inquirer");
 const request = require("https");
-const { URL_GET_TODAY_SCHEDULE_JSON } = require("./config");
+const { URL_GET_TODAY_SCHEDULE_JSON，END_SIGN } = require("./config");
 const { getUrlForPlayByPlay, displayMessages, getDateUrl } = require("./utils");
 
 let promptList = [
@@ -92,7 +92,7 @@ async function getGameDetail(url) {
       global.currentPeriod--;
       return;
     } else if (
-      events[0].description === "本节比赛已结束" &&
+      events[0].description === END_SIGN &&
       global.currentPeriod < 4
     ) {
       global.currentPeriod++;
