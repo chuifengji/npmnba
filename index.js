@@ -1,7 +1,7 @@
 const chalk = require("chalk");
 const inquirer = require("inquirer");
 const request = require("https");
-const { URL_GET_TODAY_SCHEDULE_JSON，END_SIGN } = require("./config");
+const { URL_GET_TODAY_SCHEDULE_JSON, END_SIGN } = require("./config");
 const { getUrlForPlayByPlay, displayMessages, getDateUrl } = require("./utils");
 
 let promptList = [
@@ -91,10 +91,7 @@ async function getGameDetail(url) {
     if (!events && global.currentPeriod > 1) {
       global.currentPeriod--;
       return;
-    } else if (
-      events[0].description === END_SIGN &&
-      global.currentPeriod < 4
-    ) {
+    } else if (events[0].description === END_SIGN && global.currentPeriod < 4) {
       global.currentPeriod++;
     } else {
       realTimeData = events.map((e) => {
