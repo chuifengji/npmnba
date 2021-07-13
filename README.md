@@ -14,14 +14,14 @@
 
 `npmnba`
 
-![image-20210124214504310](http://img.ethanlv.cn/image-20210124214504310.png)
+![image-20210124214504310](http://img-ethan.nt-geek.club/image-20210124214504310.png)
 
-![image-20210124214552109](http://img.ethanlv.cn/image-20210124214552109.png)
+![image-20210124214552109](http://img-ethan.nt-geek.club/image-20210124214552109.png)
 
 **others**
 
 - npmnba -d 2021-01-24
 
-  ![image-20210124214707371](http://img.ethanlv.cn/image-20210124214707371.png)
+  ![image-20210124214707371](http://img-ethan.nt-geek.club/image-20210124214707371.png)
 
 - other features? maybe nothing else
